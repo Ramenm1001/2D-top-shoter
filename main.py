@@ -21,15 +21,15 @@ class Base:
         keys = pygame.key.get_pressed()
         speed = 5
         if sum((keys[pygame.K_w], keys[pygame.K_a], keys[pygame.K_s], keys[pygame.K_d])) > 1:
-            speed = int(speed / 1.4)
+            speed = int(speed / 1.3)
         if keys[pygame.K_d]:
-            self.rect = self.rect.move(5, 0)
+            self.rect = self.rect.move(speed, 0)
         if keys[pygame.K_a]:
-            self.rect = self.rect.move(-5, 0)
+            self.rect = self.rect.move(-speed, 0)
         if keys[pygame.K_w]:
-            self.rect = self.rect.move(0, -5)
+            self.rect = self.rect.move(0, -speed)
         if keys[pygame.K_s]:
-            self.rect = self.rect.move(0, 5)
+            self.rect = self.rect.move(0, speed)
         moving = self.rect.move(0, 1)
 
     def update(self):
