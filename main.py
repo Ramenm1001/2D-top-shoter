@@ -19,7 +19,10 @@ class Player:
             self.rect = self.rect.move(5, 0)
         if keys[pygame.K_a]:
             self.rect = self.rect.move(-5, 0)
-
+        if keys[pygame.K_w]:
+            self.rect = self.rect.move(0, -5)
+        if keys[pygame.K_s]:
+            self.rect = self.rect.move(0, 5)
         moving = self.rect.move(0, 1)
 
     def update(self):
