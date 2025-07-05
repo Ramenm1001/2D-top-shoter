@@ -9,6 +9,11 @@ class Player:
         self.color = color
 
 
+class Base:
+    def __init__(self, x, y, width=40, height=40, color=(0, 253, 0)):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.color = color
+
     def draw(self):
         pygame.draw.rect(win, self.color, self.rect)
 
@@ -92,7 +97,7 @@ font = pygame.font.Font(None, 32)
 text = font.render(f"краска str(paint)",
                    False,
                    (255, 255, 255))
-
+base = Base(50, 50)
 while run:
     mouse = pygame.mouse.get_pos()
     pygame.time.delay(30)
@@ -116,7 +121,10 @@ while run:
                        (255, 255, 255))
 
     win.fill((0, 0, 0))
+
+
     player.update()
+    base.update()
     enemy.update()
     win.blit(text, (10, 10))
     pygame.display.update()
