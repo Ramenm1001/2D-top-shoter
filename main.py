@@ -8,12 +8,6 @@ class Player:
         self.rect = pygame.Rect(x, y, width, height)
         self.color = color
 
-
-class Base:
-    def __init__(self, x, y, width=40, height=40, color=(0, 253, 0)):
-        self.rect = pygame.Rect(x, y, width, height)
-        self.color = color
-
     def draw(self):
         pygame.draw.rect(win, self.color, self.rect)
 
@@ -31,6 +25,21 @@ class Base:
         if keys[pygame.K_s]:
             self.rect = self.rect.move(0, speed)
         moving = self.rect.move(0, 1)
+
+    def update(self):
+        self.move()
+        self.draw()
+
+class Base:
+    def __init__(self, x, y, width=40, height=40, color=(0, 253, 0)):
+        self.rect = pygame.Rect(x, y, width, height)
+        self.color = color
+
+    def draw(self):
+        pygame.draw.rect(win, self.color, self.rect)
+
+    def move(self):
+      pass
 
     def update(self):
         self.move()
