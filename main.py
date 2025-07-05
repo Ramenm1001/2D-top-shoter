@@ -7,14 +7,16 @@ class Player:
     def __init__(self, x, y, width=15, height=40, color=(185, 122, 87)):
         self.rect = pygame.Rect(x, y, width, height)
         self.color = color
-        self.is_fall = False
-        self.speed_y = 0
+
 
     def draw(self):
         pygame.draw.rect(win, self.color, self.rect)
 
     def move(self):
         keys = pygame.key.get_pressed()
+        speed = 5
+        if sum((keys[pygame.K_w], keys[pygame.K_a], keys[pygame.K_s], keys[pygame.K_d])) > 1:
+            speed = int(speed / 1.4)
         if keys[pygame.K_d]:
             self.rect = self.rect.move(5, 0)
         if keys[pygame.K_a]:
